@@ -1,0 +1,90 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+
+ *= require blueimp-gallery
+ *= require bootstrap-image-gallery
+ *= require blueimp-gallery-indicator
+ *= require blueimp-gallery-video
+ */
+
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
+
+.main-container {
+  background: rgba(230,230,230,1);
+  background: -moz-linear-gradient(top, rgba(230,230,230,1) 0%, rgba(255,255,255,1) 18%, rgba(255,255,255,1) 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(230,230,230,1)), color-stop(18%, rgba(255,255,255,1)), color-stop(100%, rgba(255,255,255,1)));
+  background: -webkit-linear-gradient(top, rgba(230,230,230,1) 0%, rgba(255,255,255,1) 18%, rgba(255,255,255,1) 100%);
+  background: -o-linear-gradient(top, rgba(230,230,230,1) 0%, rgba(255,255,255,1) 18%, rgba(255,255,255,1) 100%);
+  background: -ms-linear-gradient(top, rgba(230,230,230,1) 0%, rgba(255,255,255,1) 18%, rgba(255,255,255,1) 100%);
+  background: linear-gradient(to bottom, rgba(230,230,230,1) 0%, rgba(255,255,255,1) 18%, rgba(255,255,255,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e6e6e6', endColorstr='#ffffff', GradientType=0 );
+}
+
+.buttons-panel {
+  height: 50px;
+}
+
+.right-button {
+  float: right;
+  margin-right: 30px;
+}
+
+.left-button {
+  float: left;
+  margin-left: 30px;
+  .pagination {
+    margin: 0px !important;
+  }
+}
+
+.navbar {
+  border-radius: 0px !important;
+
+  &.image {
+    height: 180px;
+    margin-bottom: 0px !important;
+  }
+}
+
+.carousel-inner, .carousel {
+  height: 180px;
+}
+
+.landidng-product {
+  height: 25em;
+  border: 1px solid #EEEEEE;
+  margin: 30px;
+  border-radius: 10px;
+
+  img {
+    width: 90%;
+    height: 85%;
+    display: block;
+    margin: 0 auto;
+    margin-top: 3%;
+    border-radius: 5px;
+  }
+
+  span {
+    position: relative;
+    text-align: center;
+    display: block;
+    margin-top: 3%;
+  }
+}
+
+
+

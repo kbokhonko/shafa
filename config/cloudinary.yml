@@ -1,0 +1,9 @@
+development:
+  cloud_name: "dftqfoq2n"
+  api_key: "731297471697934"
+  api_secret: "mLj76KZccWUrjXtXqmTUFWvdVaw"
+
+production:
+  cloud_name: "dftqfoq2n"
+  api_key: "731297471697934"
+  api_secret: "mLj76KZccWUrjXtXqmTUFWvdVaw"

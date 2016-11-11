@@ -1,0 +1,43 @@
+= link_to 'Назад до всіх продуктів', products_path
+%p#notice= notice
+
+%p
+  %b Name:
+  = @product.name
+%p
+  %b Description:
+  = @product.description
+
+= link_to 'Редагувати', edit_product_path(@product)
+
+
+%br
+  = link_to 'Завантажити зображення', new_product_image_path(@product)
+%h1 Зображення
+#links
+  - @images.each do |image|
+    %a{"data-gallery" => "", :href => "#{image.file.url}", :title => "Banana"}
+      %img{:alt => "Banana", :src => "#{image.file.url(:thumb)}", width: '50'}
+
+#blueimp-gallery.blueimp-gallery
+  .slides
+  %h3.title
+  %a.prev ‹
+  %a.next ›
+  %a.close ×
+  %a.play-pause
+  %ol.indicator
+  .modal.fade
+    .modal-dialog
+      .modal-content
+        .modal-header
+          %button.close{"aria-hidden" => "true", type: "button"} &times;
+          %h4.modal-title
+        .modal-body.next
+        .modal-footer
+          %button.btn.btn-default.pull-left.prev{type: "button"}
+            %i.glyphicon.glyphicon-chevron-left
+            Previous
+          %button.btn.btn-primary.next{type: "button"}
+            Next
+            %i.glyphicon.glyphicon-chevron-right

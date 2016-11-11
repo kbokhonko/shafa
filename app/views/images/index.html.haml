@@ -1,0 +1,21 @@
+%h1
+  = "Зображення для продукту #{@product.name}"
+
+= link_to 'New Image', new_product_image_path
+%table
+  %thead
+    %tr
+      %th Name
+      %th Description
+      %th
+      %th
+      %th
+
+  %tbody
+    - @images.each do |image|
+      %tr
+        %td=image_tag image.file.url, html: {width: '150'}
+        %td= link_to 'Destroy', image, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
