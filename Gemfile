@@ -24,6 +24,7 @@ gem 'Bootstrap-Image-Gallery-rails'
 gem 'mini_magick'
 gem 'will_paginate'
 gem 'will_paginate-bootstrap'
+gem 'puma'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

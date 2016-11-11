@@ -12,9 +12,9 @@
         %a{href: "/products/#{product.id}"}
           .landidng-product
             - if product.images.count > 0
-              %img{src: "#{product.images.first.file.url}"}
+              = image_tag("#{product.images.first.file.url}")
             - else
-              %img{src: "https://placeholdit.imgix.net/~text?txtsize=80&txt=empty&w=850&h=550"}
+              = image_tag("https://placeholdit.imgix.net/~text?txtsize=80&txt=empty&w=850&h=550")
             %span.name
               = product.name
 

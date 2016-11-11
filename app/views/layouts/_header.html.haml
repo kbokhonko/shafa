@@ -8,13 +8,11 @@
     / Wrapper for slides
     .carousel-inner{role: "listbox"}
       .item.active
-        %img{ src: "/assets/2.jpg"}
+        = image_tag("2.jpg")
       .item
-        %img{ src: "/assets/shafa_kupe_42.jpg"}
-          .carousel-caption
+        = image_tag("shafa_kupe_42.jpg")
       .item
-        %img{src: "/assets/1.jpg"}
-          .carousel-caption
+        = image_tag("1.jpg")
 .navbar.navbar-default
   .container
     .nav-collapse
@@ -30,4 +28,3 @@
         - if admin_signed_in?
           %li
             = link_to('Вийти ', destroy_admin_session_path, method: :delete)
-
