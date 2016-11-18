@@ -17,5 +17,5 @@ test:
 
 production:
   <<: *defaults
-  database: shafa_test_production
+  database: shafa_production
 

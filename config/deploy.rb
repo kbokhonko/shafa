@@ -63,6 +63,7 @@ namespace :deploy do
   task :initial do
     on roles(:app) do
       before 'deploy:restart', 'puma:start'
+      before 'deploy:db:create'
       invoke 'deploy'
     end
   end
