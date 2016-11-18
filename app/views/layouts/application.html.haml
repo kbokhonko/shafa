@@ -8,7 +8,12 @@
     = csrf_meta_tags
   %body
     .main-container
+      = render 'layouts/header'
       .container
-        = render 'layouts/header'
-        = yield
-
+        .row
+          .col-md-3
+            = render 'layouts/left_nav'
+          .col-md-9
+            = yield
+      .container
+        = render 'layouts/footer'
