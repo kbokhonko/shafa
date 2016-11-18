@@ -7,16 +7,12 @@
 .row.carousel-holder
   #carousel-example-generic.carousel.slide{"data-ride" => "carousel"}
     %ol.carousel-indicators
-      %li.active{"data-slide-to" => "0", "data-target" => "#carousel-example-generic"}
-      %li{"data-slide-to" => "1", "data-target" => "#carousel-example-generic"}
-      %li{"data-slide-to" => "2", "data-target" => "#carousel-example-generic"}
+      - @initial_images.each_with_index do |url, index|
+        %li{"data-slide-to" => index, "data-target" => "#carousel-example-generic", class: "#{index == 0 ? 'active' : ''}"}
     .carousel-inner
-      .item.active
-        %img.slide-image{:alt => "", :src => "http://placehold.it/800x300"}/
-      .item
-        %img.slide-image{:alt => "", :src => "http://placehold.it/800x300"}/
-      .item
-        %img.slide-image{:alt => "", :src => "http://placehold.it/800x300"}/
+      - @initial_images.each_with_index do |url, index|
+        .item{class: "#{index == 0 ? 'active' : ''}"}
+          = image_tag(url, style:"height:300px;" )
     %a.left.carousel-control{"data-slide" => "prev", :href => "#carousel-example-generic"}
       %span.glyphicon.glyphicon-chevron-left
     %a.right.carousel-control{"data-slide" => "next", :href => "#carousel-example-generic"}
@@ -27,7 +23,7 @@
       .thumbnail
         .img{style:"height:122px;" }
           - if product.images.count > 0
-            = image_tag("#{product.images.first.file.url}", height: 150)
+            = image_tag(product.images.first.file.url)
           - else
             = image_tag("http://placehold.it/320x150")
         .caption
