@@ -2,8 +2,10 @@ Rails.application.routes.draw do
   # devise_for :admins #, skip: :registrations
   devise_for :admins, :path => '', :path_names => {:sign_in => 'admin', :sign_out => 'logout'}, only: [:sessions]
 
-  resources :products do
-    resources :images
+  resources :categories do
+    resources :products do
+      resources :images
+    end
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

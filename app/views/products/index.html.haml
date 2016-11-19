@@ -1,20 +1,36 @@
 .buttons-panel
   - if admin_signed_in?
     .right-button
-      = link_to 'Додати новий продукт', new_product_path, { class: 'btn btn-primary' }
+      = link_to 'Додати новий продукт', new_category_product_path, { class: 'btn btn-primary' }
   .left-button
     = will_paginate @products, renderer: BootstrapPagination::Rails
 
-.folders-mode
-  .row
-    - @products.each do |product|
-      .col-md-6.col-xs-12.collection
-        %a{href: "/products/#{product.id}"}
-          .landidng-product
-            - if product.images.count > 0
-              = image_tag("#{product.images.first.file.url}")
-            - else
-              = image_tag("https://placeholdit.imgix.net/~text?txtsize=80&txt=empty&w=850&h=550")
-            %span.name
-              = product.name
+.row
+  - @products.each do |product|
+    .col-sm-4.col-lg-4.col-md-4
+      .thumbnail
+        .img{style:"height:122px;" }
+          - if product.images.count > 0
+            = image_tag(product.images.first.file.url)
+          - else
+            = image_tag("http://placehold.it/320x150")
+        .caption
+          / %h4.pull-right $24.99
+          %h4
+            = link_to category_product_path(product.category.id, product.id) do
+              %span.name
+                = product.name
+          %p
+            = product.description
+
+    / - @products.each do |product|
+    /   .col-md-6.col-xs-12.collection
+    /     %a{href: "/products/#{product.id}"}
+    /       .landidng-product
+    /         - if product.images.count > 0
+    /           = image_tag("#{product.images.first.file.url}")
+    /         - else
+    /           = image_tag("https://placeholdit.imgix.net/~text?txtsize=80&txt=empty&w=850&h=550")
+    /         %span.name
+    /           = product.name
 

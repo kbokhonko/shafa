@@ -1,0 +1,16 @@
+= form_for @category do |f|
+  .form-group
+    = f.label :name
+    = f.text_field :name, class: 'form-control'
+  .form-group
+    = f.label :order
+    = f.number_field :order, class: 'form-control'
+  - if @category.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@category.errors.count, "error")} prohibited this category from being saved:"
+      %ul
+        - @category.errors.full_messages.each do |msg|
+          %li= msg
+
+  .actions
+    = f.submit 'Зберегти'

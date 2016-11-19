@@ -1,4 +1,8 @@
 .list-group
-  %a.list-group-item{:href => "#"} Шафи-купе
-  %a.list-group-item{:href => "#"} Кухні
-  %a.list-group-item{:href => "#"} Гардероби
+  - @categories.each do |category|
+    = link_to category.name, category_products_path(category), class: "list-group-item"
+
+%br
+- if admin_signed_in?
+  .right-button
+    = link_to 'Додати категорію', new_category_path, { class: 'btn btn-success' }

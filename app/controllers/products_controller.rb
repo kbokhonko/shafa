@@ -1,9 +1,10 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
+  before_action :set_category, only: [:index, :create]
   before_action :authenticate_admin!, only: [:new, :edit, :update, :create, :destroy]
 
   def index
-    @products = Product.all.paginate(page: params[:page], per_page: 6)
+    @products = @category.products.paginate(page: params[:page], per_page: 6)
   end
 
   def show
@@ -20,11 +21,11 @@ class ProductsController < ApplicationController
   end
 
   def create
-    @product = Product.new(product_params)
+    @product = @category.products.build(product_params)
 
     respond_to do |format|
       if @product.save
-        format.html { redirect_to @product, notice: 'Product was successfully created.' }
+        format.html { redirect_to @product, notice: 'Продукт був успішно створений' }
         format.json { render :show, status: :created, location: @product }
       else
         format.html { render :new }
@@ -36,7 +37,7 @@ class ProductsController < ApplicationController
   def update
     respond_to do |format|
       if @product.update(product_params)
-        format.html { redirect_to @product, notice: 'Product was successfully updated.' }
+        format.html { redirect_to category_product_path(@product.category, @product), notice: 'Продукт був успішно збережений' }
         format.json { render :show, status: :ok, location: @product }
       else
         format.html { render :edit }
@@ -59,7 +60,11 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
   end
 
+  def set_category
+    @category = Category.find(params[:category_id])
+  end
+
   def product_params
-    params.require(:product).permit(:name, :description, images_attributes: [:product_id, :url])
+    params.require(:product).permit(:name, :description, :category_id, images_attributes: [:product_id, :url])
   end
 end

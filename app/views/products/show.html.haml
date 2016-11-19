@@ -1,4 +1,4 @@
-= link_to 'Назад до всіх продуктів', products_path
+/ = link_to 'Назад до всіх продуктів', products_path
 %p#notice= notice
 
 %p
@@ -8,11 +8,11 @@
   %b Description:
   = @product.description
 
-= link_to 'Редагувати', edit_product_path(@product)
+= link_to 'Редагувати', edit_category_product_path(@product.category, @product)
 
 
 %br
-  = link_to 'Завантажити зображення', new_product_image_path(@product)
+  = link_to 'Завантажити зображення', new_category_product_image_path(@product.category, @product)
 %h1 Зображення
 #links
   - @images.each do |image|

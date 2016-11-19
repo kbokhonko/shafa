@@ -1,0 +1,18 @@
+%table.table.table-striped
+  %thead
+    %tr
+      %th Порядок відображення
+      %th Назва
+      %th
+
+  %tbody
+    - @categories.each do |category|
+      %tr
+        %td=category.order
+        %td=category.name
+        %td
+          = link_to edit_category_path(category) do
+            %i.glyphicon.glyphicon-edit
+        %td
+          = link_to category, :method => :delete, :data => { :confirm => 'Are you sure?' } do
+            %i.glyphicon.glyphicon-remove

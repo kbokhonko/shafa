@@ -1,9 +1,3 @@
-.buttons-panel
-  - if admin_signed_in?
-    .right-button
-      = link_to 'Додати новий продукт', new_product_path, { class: 'btn btn-primary' }
-
-
 .row.carousel-holder
   #carousel-example-generic.carousel.slide{"data-ride" => "carousel"}
     %ol.carousel-indicators
@@ -27,122 +21,10 @@
           - else
             = image_tag("http://placehold.it/320x150")
         .caption
-          %h4.pull-right $24.99
+          / %h4.pull-right $24.99
           %h4
-            %a{href: "/products/#{product.id}"}
+            = link_to category_product_path(product.category.id, product.id) do
               %span.name
                 = product.name
           %p
-            See more snippets like this online store item at
-            = succeed "." do
-              %a{:href => "http://www.bootsnipp.com", :target => "_blank"} Bootsnipp - http://bootsnipp.com
-        .ratings
-          %p.pull-right 15 reviews
-          %p
-            %span.glyphicon.glyphicon-star
-            %span.glyphicon.glyphicon-star
-            %span.glyphicon.glyphicon-star
-            %span.glyphicon.glyphicon-star
-            %span.glyphicon.glyphicon-star
-
-    / .col-md-6.col-xs-12.collection
-    /   %a{href: "/products/#{product.id}"}
-    /     .landidng-product
-    /       - if product.images.count > 0
-    /         = image_tag("#{product.images.first.file.url}")
-    /       - else
-    /         = image_tag("https://placeholdit.imgix.net/~text?txtsize=80&txt=empty&w=850&h=550")
-    /       %span.name
-    /         = product.name
-
-/ .col-sm-4.col-lg-4.col-md-4
-/   .thumbnail
-/     %img{:alt => "", :src => "http://placehold.it/320x150"}/
-/     .caption
-/       %h4.pull-right $24.99
-/       %h4
-/         %a{:href => "#"} First Product
-/       %p
-/         See more snippets like this online store item at
-/         = succeed "." do
-/           %a{:href => "http://www.bootsnipp.com", :target => "_blank"} Bootsnipp - http://bootsnipp.com
-/     .ratings
-/       %p.pull-right 15 reviews
-/       %p
-/         %span.glyphicon.glyphicon-star
-/         %span.glyphicon.glyphicon-star
-/         %span.glyphicon.glyphicon-star
-/         %span.glyphicon.glyphicon-star
-/         %span.glyphicon.glyphicon-star
-/ .col-sm-4.col-lg-4.col-md-4
-/   .thumbnail
-/     %img{:alt => "", :src => "http://placehold.it/320x150"}/
-/     .caption
-/       %h4.pull-right $64.99
-/       %h4
-/         %a{:href => "#"} Second Product
-/       %p This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-/     .ratings
-/       %p.pull-right 12 reviews
-/       %p
-/         %span.glyphicon.glyphicon-star
-/         %span.glyphicon.glyphicon-star
-/         %span.glyphicon.glyphicon-star
-/         %span.glyphicon.glyphicon-star
-/         %span.glyphicon.glyphicon-star-empty
-/ .col-sm-4.col-lg-4.col-md-4
-/   .thumbnail
-/     %img{:alt => "", :src => "http://placehold.it/320x150"}/
-/     .caption
-/       %h4.pull-right $74.99
-/       %h4
-/         %a{:href => "#"} Third Product
-/       %p This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-/     .ratings
-/       %p.pull-right 31 reviews
-/       %p
-/         %span.glyphicon.glyphicon-star
-/         %span.glyphicon.glyphicon-star
-/         %span.glyphicon.glyphicon-star
-/         %span.glyphicon.glyphicon-star
-/         %span.glyphicon.glyphicon-star-empty
-/ .col-sm-4.col-lg-4.col-md-4
-/   .thumbnail
-/     %img{:alt => "", :src => "http://placehold.it/320x150"}/
-/     .caption
-/       %h4.pull-right $84.99
-/       %h4
-/         %a{:href => "#"} Fourth Product
-/       %p This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-/     .ratings
-/       %p.pull-right 6 reviews
-/       %p
-/         %span.glyphicon.glyphicon-star
-/         %span.glyphicon.glyphicon-star
-/         %span.glyphicon.glyphicon-star
-/         %span.glyphicon.glyphicon-star-empty
-/         %span.glyphicon.glyphicon-star-empty
-/ .col-sm-4.col-lg-4.col-md-4
-/   .thumbnail
-/     %img{:alt => "", :src => "http://placehold.it/320x150"}/
-/     .caption
-/       %h4.pull-right $94.99
-/       %h4
-/         %a{:href => "#"} Fifth Product
-/       %p This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-/     .ratings
-/       %p.pull-right 18 reviews
-/       %p
-/         %span.glyphicon.glyphicon-star
-/         %span.glyphicon.glyphicon-star
-/         %span.glyphicon.glyphicon-star
-/         %span.glyphicon.glyphicon-star
-/         %span.glyphicon.glyphicon-star-empty
-/ .col-sm-4.col-lg-4.col-md-4
-/   %h4
-/     %a{:href => "#"} Like this template?
-/   %p
-/     If you like this template, then check out
-/     %a{:href => "http://maxoffsky.com/code-blog/laravel-shop-tutorial-1-building-a-review-system/", :target => "_blank"} this tutorial
-/     on how to build a working review system for your online store!
-/   %a.btn.btn-primary{:href => "http://maxoffsky.com/code-blog/laravel-shop-tutorial-1-building-a-review-system/", :target => "_blank"} View Tutorial
+            = product.description

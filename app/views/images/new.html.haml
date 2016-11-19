@@ -1,4 +1,4 @@
-= form_for [@product, @image] do |f|
+= form_for [@product.category, @product, @image] do |f|
   = f.label :file
   = f.file_field :file
 
